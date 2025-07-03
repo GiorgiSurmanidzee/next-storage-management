@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,23 +16,24 @@ import {
 import { Input } from "./ui/input";
 import Link from "next/link";
 
-type FromType = {
-  type: "sign-in" | "sign-up";
+type FormType = "sign-in" | "sign-up";
+
+const authFormSchema = (formType: FormType) => {
+  return z.object({
+    email: z.string().email(),
+    fullName:
+      formType === "sign-up"
+        ? z.string().min(2).max(50)
+        : z.string().optional(),
+  });
 };
 
-const formSchema = z.object({
-  fullName: z
-    .string()
-    .min(2, {
-      message: "Full name must be at least 2 characters.",
-    })
-    .optional(),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-});
+const AuthForm = ({ type }: { type: FormType }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [accountId, setAccountId] = useState(null);
 
-const AuthForm = ({ type }: FromType) => {
+  const formSchema = authFormSchema(type);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,7 +43,23 @@ const AuthForm = ({ type }: FromType) => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log("values", values);
+    setIsLoading(true);
+    setErrorMessage("");
+
+    try {
+      // const user =
+      //   type === "sign-up"
+      //     ? await createAccount({
+      //         fullName: values.fullName || "",
+      //         email: values.email,
+      //       })
+      //     : await signInUser({ email: values.email });
+      // setAccountId(user.accountId);
+    } catch {
+      setErrorMessage("Failed to create account. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
