@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
-:root {
+@theme {
+  --color-brand-100: #ea6365;
+  --color-brand: #fa7275;
+
+  --color-red: #ff7474;
+  --color-error: #b80000;
+  --color-green: #3dd9b3;
+  --color-blue: #56b8ff;
+  --color-pink: #eea8fd;
+  --color-orange: #f9ab72;
+
+  --color-light-100: #333f4e;
+  --color-light-200: #a3b2c7;
+  --color-light-300: #f2f5f9;
+  --color-light-400: #f2f4f8;
+
+  --color-dark-100: #04050c;
+  --color-dark-200: #131524;
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+
+  --primary: #fa7275;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e8e8e8;
+  --secondary-foreground: #131524;
+
+  --muted: #f2f4f8;
+  --muted-foreground: #333f4e;
+
+  --accent: #f9ab72;
+  --accent-foreground: #04050c;
+
+  --destructive: #db4e4e;
+  --destructive-foreground: #ffffff;
+
+  --border: #e8e8e8;
+  --input: #e8e8e8;
+  --ring: #a3b2c7;
+
+  --chart-1: #56b8ff;
+  --chart-2: #3dd9b3;
+  --chart-3: #f9ab72;
+  --chart-4: #eea8fd;
+  --chart-5: #ff7474;
+
+  --shadow-all: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  --shadow-card: 0px 1px 20px -2px #0000001f;
+
+  --font-poppins:
+    "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
+
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .h1 {
+    @apply text-[34px] leading-[42px] font-bold;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .h2 {
+    @apply text-[24px] leading-[36px] font-bold;
+  }
+  .h3 {
+    @apply text-[20px] leading-[28px] font-semibold;
+  }
+  .h4 {
+    @apply text-[18px] leading-[20px] font-medium;
+  }
+  .h5 {
+    @apply text-[16px] leading-[24px] font-semibold;
+  }
+  .subtitle-1 {
+    @apply text-[16px] leading-[24px] font-medium;
+  }
+  .subtitle-2 {
+    @apply text-[14px] leading-[20px] font-semibold;
+  }
+  .body-1 {
+    @apply text-[16px] leading-[24px] font-normal;
+  }
+  .body-2 {
+    @apply text-[14px] leading-[20px] font-normal;
+  }
+  .button {
+    @apply text-[14px] leading-[20px] font-medium;
+  }
+  .caption {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+  .overline {
+    @apply text-[10px] leading-[14px] font-normal;
+  }
 }
