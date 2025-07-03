@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
+  --radius: 0.625rem;
   --color-brand-100: #ea6365;
   --color-brand: #fa7275;
-
   --color-red: #ff7474;
   --color-error: #b80000;
   --color-green: #3dd9b3;
@@ -19,48 +21,108 @@
   --color-dark-100: #04050c;
   --color-dark-200: #131524;
 
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 
-  --card: #ffffff;
-  --card-foreground: #0a0a0a;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-  --popover: #ffffff;
-  --popover-foreground: #0a0a0a;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
 
-  --primary: #fa7275;
-  --primary-foreground: #ffffff;
-
-  --secondary: #e8e8e8;
-  --secondary-foreground: #131524;
-
-  --muted: #f2f4f8;
-  --muted-foreground: #333f4e;
-
-  --accent: #f9ab72;
-  --accent-foreground: #04050c;
-
-  --destructive: #db4e4e;
-  --destructive-foreground: #ffffff;
-
-  --border: #e8e8e8;
-  --input: #e8e8e8;
-  --ring: #a3b2c7;
-
-  --chart-1: #56b8ff;
-  --chart-2: #3dd9b3;
-  --chart-3: #f9ab72;
-  --chart-4: #eea8fd;
-  --chart-5: #ff7474;
-
-  --shadow-all: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  --shadow-card: 0px 1px 20px -2px #0000001f;
-
-  --font-poppins:
-    "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    sans-serif;
-
-  --radius: 0.5rem;
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer utilities {
@@ -91,13 +153,50 @@
   .body-2 {
     @apply text-[14px] leading-[20px] font-normal;
   }
-  .button {
-    @apply text-[14px] leading-[20px] font-medium;
-  }
+
   .caption {
     @apply text-[12px] leading-[16px] font-normal;
+  }
+  .button {
+    @apply text-[14px] leading-[20px] font-medium;
   }
   .overline {
     @apply text-[10px] leading-[14px] font-normal;
   }
+}
+
+.auth-form {
+  @apply flex max-h-[800px] w-full max-w-[580px] flex-col gap-4;
+}
+
+.form-title {
+  @apply text-center text-light-100 md:text-left text-[34px] leading-[42px] font-bold;
+}
+
+.shad-form-item {
+  @apply flex h-[58px] flex-col justify-center rounded-xl border border-light-300 px-4;
+}
+
+.shad-form-label {
+  @apply text-light-100 pt-2  w-full text-[14px] leading-[20px] font-normal;
+}
+
+.shad-no-focus {
+  @apply outline-none ring-offset-transparent focus:ring-transparent focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0;
+}
+
+.shad-input {
+  @apply border-none shadow-none p-0  placeholder:text-light-200  text-[14px] leading-[20px] font-normal;
+}
+
+.shad-form-message {
+  @apply text-red text-[14px] leading-[20px] font-normal ml-4;
+}
+
+.primary-btn {
+  @apply bg-brand hover:bg-brand-100 transition-all rounded-full text-[14px] leading-[20px] font-medium;
+}
+
+.form-submit-button {
+  @apply h-[46px] bg-brand hover:bg-brand-100 transition-all rounded-full ;
 }
